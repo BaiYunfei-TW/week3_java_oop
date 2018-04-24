@@ -1,6 +1,7 @@
 package practice10;
 
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 public class Teacher extends Person {
@@ -33,14 +34,14 @@ public class Teacher extends Person {
     }
 
     private String getClassNameString(){
-        String classNameString = "Class ";
+        String classNameString = "";
         for (Klass klass : classes) {
-            classNameString += klass.getNumber() + ", ";
+            classNameString = klass.getNumber() + ", " + classNameString;
         }
-        if(classNameString.length() > 6){
+        if(classNameString.length() > 0){
             classNameString = classNameString.substring(0, classNameString.length() - 2);
         }
-        return classNameString;
+        return "Class " + classNameString;
     }
 
     public Set<Klass> getClasses() {
